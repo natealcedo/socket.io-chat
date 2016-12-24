@@ -1,31 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
-  * body {
-    font: 13px Helvetica, Arial; }
-    * body form {
-      text-align: center;
-      border: solid;
-      border-color: red;
-      position: fixed;
-      bottom: 0;
-      width: 90vw; }
-      * body form input {
-        border: 0;
-        padding: 10px;
-        width: 90%; }
-      * body form button {
-        width: 9%;
-        background: #82e0ff;
-        border: solid;
-        border-radius: 5px;
-        padding: 10px; }
-    * body #messages {
-      list-style-type: none;
-      margin: 0;
-      padding: 0; }
-      * body #messages li {
-        padding: 5px 10px; }
-        * body #messages li:nth-child(odd) {
-          background: #FFE4B5; }
+body .input {
+  position: fixed;
+  bottom: 0px;
+  padding-right: 30px; }
+
+body ul#messages {
+  list-style: none;
+  padding: 0; }

@@ -18,7 +18,10 @@ app.get('/', (req, res) => {
 io.on('connection', socket => {
 	console.log('user connected!')
 	socket.on('chat message', msg => {
-		let message = `${msg} @ ${new Date().toString().split(' ')[4]}`
+		let message = {
+			message: msg,
+			time: new Date().toString().split(' ')[4]
+		}
 		io.emit('chat message', message)
 	})
 })

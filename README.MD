@@ -12,8 +12,17 @@ To run development server:
 - [ ] Implement channels
 - [ ] Implement logic for using names in the application
 - [ ] Use a data base to save messages and be able to retrieve at a much later date
- 
-### Secondary to dos
 - [ ] Update the client side css
+
+
+### Secondary to dos
+
 - [ ] Implement Private Messages
 - [ ] Use Vue.js somewhere down the road
+- [ ] Implement a way to turn on and off sound notifications
+- [ ] Allow for sessions so that user wont have to re-enter name 
+
+### Bug Fixes to do
+
+- [ ] Limit number of messages allowed before the page will have to scroll
+- [ ] Screen input. Disable blank messages from being sent 
