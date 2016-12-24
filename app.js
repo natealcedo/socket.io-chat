@@ -12,13 +12,26 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 
-
-app.get('/', (req, res) => {
-	res.render('index')
+http.listen(process.env.PORT || 3000, () => {
+	console.log('Server started on port 3000')
 })
-mongodb.connect(mongoUrl, (err,db)=>{
-	if(err) throw err
+
+
+
+mongodb.connect(mongoUrl, (err, db) => {
+	if (err) throw err
 	let messages = db.collection('messages')
+
+	app.get('/', (req, res) => {
+		res.render('index')
+	})
+
+	app.get('/messages', (req, res) => {
+		messages.find().toArray((err,data)=>{
+			if(err) throw err
+			res.json(data)
+		})
+	})
 
 	io.on('connection', socket => {
 		console.log('user connected!')
@@ -28,16 +41,12 @@ mongodb.connect(mongoUrl, (err,db)=>{
 				time: new Date().toString().split(' ')[4]
 			}
 			io.emit('chat message', message)
-			messages.insert(message,(err)=>{
+			messages.insert(message, (err) => {
 				if (err) throw err
-				console.log('Data added to db')
+				console.log('Success: Data added to db')
 			})
 		})
 
 	})
 
-})
-
-http.listen(process.env.PORT || 3000, () => {
-	console.log('Server started on port 3000')
 })
