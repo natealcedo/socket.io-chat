@@ -28,7 +28,12 @@ mongodb.connect(mongoUrl, (err,db)=>{
 				time: new Date().toString().split(' ')[4]
 			}
 			io.emit('chat message', message)
-			messages.insert(message)
+			messages.insert(message,(err)=>{
+				if (err) throw err
+				console.log('Data added to db')
+			})
+		})
+
 	})
 
 })
