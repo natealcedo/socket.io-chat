@@ -12,8 +12,8 @@ To run development server:
 - [ ] Implement channels
 - [ ] Implement logic for using names in the application
 - [ ] Use a data base to save messages and be able to retrieve at a much later date
-- 
-- ### Secondary to dos
+ 
+### Secondary to dos
 - [ ] Update the client side css
 - [ ] Implement Private Messages
 - [ ] Use Vue.js somewhere down the road
