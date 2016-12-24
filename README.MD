@@ -1,4 +1,4 @@
-# Basic chat application to learn socket.io. Link [here](https://jasperchat.heroku.com)
+# Basic chat application to learn socket.io. Link [here](https://jasperchat.herokuapp.com)
 
 To run development server: 
 `gulp`
