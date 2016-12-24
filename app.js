@@ -4,6 +4,8 @@ const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const path = require('path')
 const morgan = require('morgan')
+const mongodb = require('mongodb').MongoClient
+const mongoUrl = 'mongodb://nate:12345@ds145158.mlab.com:45158/socket-io-chat'
 
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -14,16 +16,21 @@ app.set('views', path.join(__dirname, 'views'))
 app.get('/', (req, res) => {
 	res.render('index')
 })
+mongodb.connect(mongoUrl, (err,db)=>{
+	if(err) throw err
+	let messages = db.collection('messages')
 
-io.on('connection', socket => {
-	console.log('user connected!')
-	socket.on('chat message', msg => {
-		let message = {
-			message: msg,
-			time: new Date().toString().split(' ')[4]
-		}
-		io.emit('chat message', message)
+	io.on('connection', socket => {
+		console.log('user connected!')
+		socket.on('chat message', msg => {
+			let message = {
+				message: msg,
+				time: new Date().toString().split(' ')[4]
+			}
+			io.emit('chat message', message)
+			messages.insert(message)
 	})
+
 })
 
 http.listen(process.env.PORT || 3000, () => {
