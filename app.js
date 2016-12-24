@@ -4,6 +4,7 @@ const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const path = require('path')
 const morgan = require('morgan')
+const port = process.env.PORT || 3000
 
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -23,6 +24,6 @@ io.on('connection', socket => {
 	})
 })
 
-http.listen(3000, () => {
+http.listen(port, () => {
 	console.log('Server started on port 3000')
 })
