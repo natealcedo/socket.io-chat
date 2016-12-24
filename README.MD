@@ -5,13 +5,16 @@ To run development server:
 
 ## Chat application features to build
 
+## Currently in the process of implementing:
+> Use a data base to save messages and be able to retrieve at a much later date 
+
 ### Primary to dos
 
 - [x] Set up workflow for developing the application
 - [x] Implement barebones application
 - [ ] Implement channels
-- [ ] Implement logic for using names in the application
-- [ ] Use a data base to save messages and be able to retrieve at a much later date
+- [ ] Implement logic for using names in the application 
+- [ ] Use a data base to save messages and be able to retrieve at a much later date 
 - [ ] Update the client side css
 
 
