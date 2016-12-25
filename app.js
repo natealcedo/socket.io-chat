@@ -12,6 +12,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 
+http.listen(process.env.PORT || 3000, () => {
+	console.log('Server started on port 3000')
+}) 
+
 app.get('/', (req, res) => {
 	res.render('index')
 })
@@ -47,6 +51,3 @@ mongodb.connect(mongoUrl, (err, db) => {
 
 
 
-http.listen(process.env.PORT || 3000, () => {
-	console.log('Server started on port 3000')
-})
