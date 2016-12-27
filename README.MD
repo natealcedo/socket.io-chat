@@ -13,7 +13,8 @@ To run development server:
 - [x] Set up workflow for developing the application
 - [x] Implement barebones application
 - [ ] Implement channels
-- [ ] Implement logic for using names in the application 
+- [x] Implement logic for using names in the application 
+- [ ] Implement names in the application itself so that it will refelct when a user joins the chat
 - [ ] Use a data base to save messages and be able to retrieve at a much later date 
 - [ ] Update the client side css
 
@@ -28,4 +29,4 @@ To run development server:
 ### Bug Fixes to do
 
 - [ ] Limit number of messages allowed before the page will have to scroll
-- [ ] Screen input. Disable blank messages from being sent 
+- [x] Screen input. Disable blank messages from being sent 
