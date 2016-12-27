@@ -41,7 +41,7 @@ mongodb.connect(mongoUrl, (err, db) => {
 			io.emit('chat message', message)
 			messages.insert(message, (err) => {
 				if (err) throw err
-				console.log('Success: Data added to db')
+				console.log(`Success: ${message.message} added to db`)
 			})
 		})
 
