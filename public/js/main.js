@@ -35,7 +35,7 @@
 		login = true
 		$('#login').hide()
 		$('.input').show()
-		$('.nickName').html($('#userName').val())
+		$('.nickName').html('Your screen name: '+$('#userName').val())
 		return 
 	})
 
