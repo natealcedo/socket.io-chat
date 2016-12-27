@@ -6,3 +6,6 @@ body .input {
 body ul#messages {
   list-style: none;
   padding: 0; }
+
+body .login form {
+  width: 50vw; }
