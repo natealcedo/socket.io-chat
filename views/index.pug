@@ -1,28 +1,37 @@
 html
 	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-		meta(name="viewport" content="width=device-width, initial-scale=1")
-		meta(name="description" content="")
-		meta(name="author" content="")
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		meta(name='description' content='')
+		meta(name='author' content='')
 		
 		title Chat application
-		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
 		link(rel='stylesheet' href='css/main.css')
 
 	body.container-fluid
-		h1 Chat here!
+		h1 Lets talk cock 
+
+		div.login
+			label.nickName Nick Name
+			form.input-group#login(action='')
+				input.form-control#userName(type='text' placeholder='Enter name')
+				span.input-group-btn
+					button.btn.btn-primary Enter
+					
 		div.pull-left
 			ul#messages
+
 		div.input
 			label Chat
-			form.input-group(action="")
-				input.form-control#message(type="text" autocomplete="off")
+			form.input-group(action='')
+				input.form-control#message(type='text' autocomplete='off')
 				span.input-group-btn
 					button.btn.btn-primary Send
 				
-		audio(id="audio" src="https://www.soundjay.com/button/button-30.wav" autostart="false")
-		script(src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous")
-		script(src="/socket.io/socket.io.js")
-		script(src="https://vuejs.org/js/vue.js")
-		script(src="js/main.js")
+		audio(id='audio' src='https://www.soundjay.com/button/button-30.wav' autostart='false')
+		script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+		script(src='/socket.io/socket.io.js')
+		//- script(src='https://vuejs.org/js/vue.js')
+		script(src='js/main.js')
