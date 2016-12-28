@@ -33,7 +33,7 @@ var mongodb = _mongodb2.default.MongoClient;
 var mongoUrl = 'mongodb://nate:12345@ds145158.mlab.com:45158/socket-io-chat';
 
 app.use((0, _morgan2.default)('dev'));
-app.use(_express2.default.static(_path2.default.join(__dirname, '..', 'public')));
+app.use(_express2.default.static(_path2.default.join(__dirname, '..', 'app/public')));
 app.set('view engine', 'pug');
 app.set('views', _path2.default.join(__dirname, '..', 'views'));
 

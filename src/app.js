@@ -13,7 +13,7 @@ const mongodb = mongo.MongoClient
 const mongoUrl = 'mongodb://nate:12345@ds145158.mlab.com:45158/socket-io-chat'
 
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, '..', 'public')))
+app.use(express.static(path.join(__dirname, '..', 'app/public')))
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, '..', 'views'))
 

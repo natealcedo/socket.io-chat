@@ -1,8 +1,6 @@
-'use strict';
-
 (function () {
 	// debugger
-
+	var app = document.getElementById('app')
 	var socket = io()
 
 	$('.input').hide()
