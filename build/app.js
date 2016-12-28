@@ -46,19 +46,29 @@ app.get('/', function (req, res) {
 });
 
 mongodb.connect(mongoUrl, function (err, db) {
+
 	if (err) throw err;
 	var messages = db.collection('messages');
 
 	app.get('/messages', function (req, res) {
-		messages.find().toArray(function (err, data) {
+		messages.find().toArray(function (err, messages) {
 			if (err) throw err;
-			res.json(data);
+			res.json(messages);
 		});
 	});
 
-	io.on('connection', function (socket) {
+	io.on('connection', function (client) {
+
+		var users = {};
 		console.log('user connected!');
-		socket.on('chat message', function (msg) {
+
+		client.on('join', function (name) {
+			users[client.id] = name;
+			client.broadcast.emit('update', name + ' has connected to the server');
+			client.emit('update', 'you have connected to the server');
+		});
+
+		client.on('chat message', function (msg) {
 			var message = {
 				message: msg,
 				time: new Date().toString().split(' ')[4]

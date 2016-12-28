@@ -26,19 +26,29 @@ app.get('/', (req, res) => {
 })
 
 mongodb.connect(mongoUrl, (err, db) => {
+
 	if (err) throw err
 	let messages = db.collection('messages')
 
 	app.get('/messages', (req, res) => {
-		messages.find().toArray((err, data) => {
+		messages.find().toArray((err, messages) => {
 			if (err) throw err
-			res.json(data)
+			res.json(messages)
 		})
 	})
 
-	io.on('connection', socket => {
+	io.on('connection', client => {
+		
+		const users = {}
 		console.log('user connected!')
-		socket.on('chat message', msg => {
+
+		client.on('join', name =>{
+			users[client.id] = name
+			client.broadcast.emit('update', name + ' has connected to the server')
+			client.emit('update', 'you have connected to the server')
+		})
+
+		client.on('chat message', msg => {
 			let message = {
 				message: msg,
 				time: new Date().toString().split(' ')[4]
