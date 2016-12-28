@@ -1,10 +1,10 @@
-'use strict'
-
 const gulp = require('gulp')
 const browserSync = require('browser-sync')
 const nodemon = require('gulp-nodemon')
 const sass = require('gulp-sass')
 const reload = browserSync.reload
+const babel = require('gulp-babel')
+
 
 gulp.task('default', ['browser-sync', 'watch'])
 
@@ -18,7 +18,7 @@ gulp.task('browser-sync', ['nodemon'], () => {
 gulp.task('nodemon', cb => {
 	let started = false
 	return nodemon({
-		script: 'app.js'
+		script: './build/app.js'
 	}).on('start', () => {
 		if (!started) {
 			cb()
@@ -34,5 +34,16 @@ gulp.task('sass', () => {
 })
 
 gulp.task('watch', () => {
-	gulp.watch(['sass/*','views/*'], ['sass', reload])
+	gulp.watch(['sass/*', 'views/*'], ['sass', reload])
+	gulp.watch('src/*',['babel'])
+})
+
+gulp.task('babel', () => { 
+	gulp.src('./src/**/*.js')
+		.pipe(babel({
+			presets: ['es2015']
+		}).on('error', (err)=>{
+			console.log(err)
+		}))
+		.pipe(gulp.dest('./build'))
 })

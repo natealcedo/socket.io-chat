@@ -17,6 +17,7 @@ To run development server:
 - [ ] Implement names in the application itself so that it will refelct when a user joins the chat
 - [ ] Use a data base to save messages and be able to retrieve at a much later date 
 - [ ] Update the client side css
+- [ ] implement a build step for using babel in this application
 
 
 ### Secondary to dos

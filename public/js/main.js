@@ -35,8 +35,8 @@
 		login = true
 		$('#login').hide()
 		$('.input').show()
-		$('.nickName').html('Your screen name: '+$('#userName').val())
-		return 
+		$('.nickName').html('Your screen name: ' + $('#userName').val())
+		return
 	})
 
 	socket.on('chat message', msg => {
