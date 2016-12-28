@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
 
 mongodb.connect(mongoUrl, (err, db) => {
 
+	const users = []
 	if (err) throw err
 	let messages = db.collection('messages')
 
@@ -38,12 +39,11 @@ mongodb.connect(mongoUrl, (err, db) => {
 	})
 
 	io.on('connection', client => {
-		
-		const users = {}
-		console.log('user connected!')
+		users.forEach(el => console.log(el))
 
-		client.on('join', name =>{
+		client.on('join', name => {
 			users[client.id] = name
+			console.log(users)
 			client.broadcast.emit('update', name + ' has connected to the server')
 			client.emit('update', 'you have connected to the server')
 		})

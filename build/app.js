@@ -47,6 +47,7 @@ app.get('/', function (req, res) {
 
 mongodb.connect(mongoUrl, function (err, db) {
 
+	var users = [];
 	if (err) throw err;
 	var messages = db.collection('messages');
 
@@ -58,12 +59,13 @@ mongodb.connect(mongoUrl, function (err, db) {
 	});
 
 	io.on('connection', function (client) {
-
-		var users = {};
-		console.log('user connected!');
+		users.forEach(function (el) {
+			return console.log(el);
+		});
 
 		client.on('join', function (name) {
 			users[client.id] = name;
+			console.log(users);
 			client.broadcast.emit('update', name + ' has connected to the server');
 			client.emit('update', 'you have connected to the server');
 		});

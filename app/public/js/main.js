@@ -45,6 +45,6 @@
 	});
 
 	socket.on('update', function (user) {
-		$('#messages').append($('<li>' + user + '</li>'));
+		$('#messages').append($('<li><b>' + user + '</b></li>'));
 	});
 })();

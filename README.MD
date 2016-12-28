@@ -14,10 +14,12 @@ To run development server:
 - [x] Implement barebones application
 - [ ] Implement channels
 - [x] Implement logic for using names in the application 
-- [ ] Implement names in the application itself so that it will refelct when a user joins the chat
+- [x] Implement names in the application itself so that it will refelct when a user joins the chat
+- [ ] Implement for notifications when a user leaves the room
 - [ ] Use a data base to save messages and be able to retrieve at a much later date 
-- [ ] Update the client side css
+- [x] Update the client side css
 - [x] implement a build step for using babel in this application
+- [ ] implement a component that shows all the users active in the application at the moment
 
 
 ### Secondary to dos
