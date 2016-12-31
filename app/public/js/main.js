@@ -40,11 +40,11 @@
 
 	socket.on('chat message', function (msg) {
 		var sound = document.getElementById('audio');
-		$('#messages').append($('<li>').text(msg.message));
+		$('#messages').append('<li>' + msg.message + '<span class="pull-right">@' + msg.time + '</span></li>');
 		sound.play();
 	});
 
 	socket.on('update', function (user) {
-		$('#messages').append($('<li><b>' + user + '</b></li>'));
+		$('#messages').append('<li><b>' + user + '</b></li>');
 	});
 })();

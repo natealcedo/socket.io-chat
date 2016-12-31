@@ -5,9 +5,16 @@ body .input {
 
 body ul#messages {
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  width: 100%; }
 
 body .login {
   height: 24px; }
   body .login form {
     width: 50vw; }
+
+body #time {
+  text-align: right; }
+
+body .pull-left {
+  width: 100%; }
